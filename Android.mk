@@ -22,13 +22,13 @@ ifneq ("$(wildcard $(PRODUCT_OUT)/odm.img)","")
 endif
 
 # Copy all files in order to rebuild ODM image with command "make custom_images"
-$(shell mkdir -p $(PRODUCT_OUT)/odm/bin)
-$(foreach p,$(wildcard $(LOCAL_PATH)/bin/*),$(shell cp -r $(LOCAL_PATH)/bin/$(notdir $(p)) $(PRODUCT_OUT)/odm/bin/. > /dev/null))
-$(shell mkdir -p $(PRODUCT_OUT)/odm/firmware)
-$(foreach p,$(wildcard $(LOCAL_PATH)/firmware/*),$(shell cp -r $(LOCAL_PATH)/firmware/$(notdir $(p)) $(PRODUCT_OUT)/odm/firmware/. > /dev/null))
-$(shell mkdir -p $(PRODUCT_OUT)/odm/lib)
-$(foreach p,$(wildcard $(LOCAL_PATH)/lib/*),$(shell cp -r $(LOCAL_PATH)/lib/$(notdir $(p)) $(PRODUCT_OUT)/odm/lib/. > /dev/null))
-$(shell mkdir -p $(PRODUCT_OUT)/odm/lib64)
-$(foreach p,$(wildcard $(LOCAL_PATH)/lib64/*),$(shell cp -r $(LOCAL_PATH)/lib64/$(notdir $(p)) $(PRODUCT_OUT)/odm/lib64/. > /dev/null))
+$(shell mkdir -p $(TARGET_OUT_ODM)/bin)
+$(foreach p,$(wildcard $(LOCAL_PATH)/bin/*),$(shell cp -r $(LOCAL_PATH)/bin/$(notdir $(p)) $(TARGET_OUT_ODM)/bin/. > /dev/null))
+$(shell mkdir -p $(TARGET_OUT_ODM)/firmware)
+$(foreach p,$(wildcard $(LOCAL_PATH)/firmware/*),$(shell cp -r $(LOCAL_PATH)/firmware/$(notdir $(p)) $(TARGET_OUT_ODM)/firmware/. > /dev/null))
+$(shell mkdir -p $(TARGET_OUT_ODM)/lib)
+$(foreach p,$(wildcard $(LOCAL_PATH)/lib/*),$(shell cp -r $(LOCAL_PATH)/lib/$(notdir $(p)) $(TARGET_OUT_ODM)/lib/. > /dev/null))
+$(shell mkdir -p $(TARGET_OUT_ODM)/lib64)
+$(foreach p,$(wildcard $(LOCAL_PATH)/lib64/*),$(shell cp -r $(LOCAL_PATH)/lib64/$(notdir $(p)) $(TARGET_OUT_ODM)/lib64/. > /dev/null))
 
 endif

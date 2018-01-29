@@ -31,5 +31,7 @@ $(shell mkdir -p $(TARGET_OUT_ODM)/lib)
 $(foreach p,$(wildcard $(LOCAL_PATH)/lib/*),$(shell cp -r $(LOCAL_PATH)/lib/$(notdir $(p)) $(TARGET_OUT_ODM)/lib/. > /dev/null))
 $(shell mkdir -p $(TARGET_OUT_ODM)/lib64)
 $(foreach p,$(wildcard $(LOCAL_PATH)/lib64/*),$(shell cp -r $(LOCAL_PATH)/lib64/$(notdir $(p)) $(TARGET_OUT_ODM)/lib64/. > /dev/null))
+$(shell mkdir -p $(TARGET_OUT_ODM)/radio)
+$(foreach p,$(wildcard $(LOCAL_PATH)/radio/*),$(shell cp -r $(LOCAL_PATH)/radio/$(notdir $(p)) $(TARGET_OUT_ODM)/radio/. > /dev/null))
 
 endif

@@ -22,7 +22,8 @@ ifneq ("$(wildcard $(PRODUCT_OUT)/odm.img)","")
 endif
 
 # Copy all files in order to rebuild ODM image with command "make custom_images"
-$(shell cp $(LOCAL_PATH)/build.prop $(TARGET_OUT_ODM)/. > /dev/null)
+$(shell mkdir -p $(TARGET_OUT_ODM))
+$(foreach p,$(wildcard $(LOCAL_PATH)/*.prop),$(shell cp -r $(LOCAL_PATH)/$(notdir $(p)) $(TARGET_OUT_ODM)/. > /dev/null))
 $(shell mkdir -p $(TARGET_OUT_ODM)/bin)
 $(foreach p,$(wildcard $(LOCAL_PATH)/bin/*),$(shell cp -r $(LOCAL_PATH)/bin/$(notdir $(p)) $(TARGET_OUT_ODM)/bin/. > /dev/null))
 $(shell mkdir -p $(TARGET_OUT_ODM)/firmware)

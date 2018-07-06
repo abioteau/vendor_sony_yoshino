@@ -16,6 +16,8 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter yoshino,$(PRODUCT_PLATFORM)),)
 
+ifneq ($(filter 4.4,$(SOMC_KERNEL_VERSION)),)
+
 # If exist, include ODM image on target files as vendor image
 ifneq ("$(wildcard $(PRODUCT_OUT)/odm.img)","")
     BOARD_PREBUILT_VENDORIMAGE := $(PRODUCT_OUT)/odm.img
@@ -34,5 +36,7 @@ $(shell mkdir -p $(TARGET_OUT_ODM)/lib64)
 $(foreach p,$(wildcard $(LOCAL_PATH)/lib64/*),$(shell cp -r $(LOCAL_PATH)/lib64/$(notdir $(p)) $(TARGET_OUT_ODM)/lib64/. > /dev/null))
 $(shell mkdir -p $(TARGET_OUT_ODM)/radio)
 $(foreach p,$(wildcard $(LOCAL_PATH)/radio/*),$(shell cp -r $(LOCAL_PATH)/radio/$(notdir $(p)) $(TARGET_OUT_ODM)/radio/. > /dev/null))
+
+endif
 
 endif

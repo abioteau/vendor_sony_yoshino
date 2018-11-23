@@ -18,9 +18,11 @@ ifneq ($(filter yoshino,$(PRODUCT_PLATFORM)),)
 
 ifneq ($(filter 4.9,$(SOMC_KERNEL_VERSION)),)
 
-# If exist, include ODM image on target files as vendor image
+# If exist and vendor image is not used, include ODM image on target files as vendor image
+ifndef BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE
 ifneq ("$(wildcard $(PRODUCT_OUT)/odm.img)","")
     BOARD_PREBUILT_VENDORIMAGE := $(PRODUCT_OUT)/odm.img
+endif
 endif
 
 # Copy all files in order to rebuild ODM image with command "make custom_images"

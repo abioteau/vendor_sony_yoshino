@@ -16,7 +16,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter yoshino,$(PRODUCT_PLATFORM)),)
 
-ifneq ($(filter 4.9,$(SOMC_KERNEL_VERSION)),)
+ifneq ($(filter 4.14,$(SOMC_KERNEL_VERSION)),)
 
 # If exist and vendor image is not used, include ODM image on target files as vendor image
 ifndef BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE
